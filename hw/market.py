@@ -22,7 +22,8 @@ class Market:
 
         :return: list
         """
-        return [drink[1] for drink in sorted(self.drinks.items())]
+        return [drink[1] for drink in sorted(
+          [drink for drink in self.drinks.items() if drink[0] is not None])]
     
     @log_call
     def get_drinks_by_production_date(self, from_date: date=None, to_date: date=None) -> list:
@@ -31,4 +32,6 @@ class Market:
 
         :return: list
         """
-        return [*filter(lambda drink: from_date <= drink.production_date <= to_date, self.drinks.values())]
+        return [*filter(
+          lambda drink: from_date <= drink.production_date <= to_date,
+          [drink for drink in self.drinks.values() if drink.production_date is not None])]
