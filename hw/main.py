@@ -3,7 +3,6 @@ from wine import Wine
 from beer import Beer
 from market import Market
 
-
 wine1 = Wine(title='Dom Perignon', production_date=date(2023, 4, 1))
 wine2 = Wine(title=None, production_date=date(2023, 3, 1))
 beer1 = Beer(title='Bud light', production_date=date(2023, 1, 1))
