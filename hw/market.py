@@ -18,7 +18,7 @@ class Market:
         :param title:
         :return: True|False
         """
-        return title in self.get_all_drinks()
+        return title in self.beers or title in self.wines
     
     @log_call
     def get_drinks_sorted_by_title(self) -> list:
