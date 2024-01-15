@@ -1,12 +1,15 @@
+from datetime import date
 from wine import Wine
 from beer import Beer
 from market import Market
 
-"""
-TODO: Доработать заготовки классов вина (Wine), пива (Beer) и магазина (Market) таким образом, чтобы через класс Market можно было:
+wine1 = Wine(title='Dom Perignon', production_date=date(2023, 4, 1))
+wine2 = Wine(title=None, production_date=date(2023, 3, 1))
+beer1 = Beer(title='Bud light', production_date=date(2023, 1, 1))
+beer2 = Beer(title='Bud', production_date=None)
 
-    * получить список всех напитков (вина и пива) отсортированный по наименованию
-    * проверить наличие напитка в магазине (за время О(1))
-    * получить список напитков (вина и пива) в указанном диапазоне даты производства
-    * (*) написать свой декоратор, который бы логировал начало выполнения метода и выводил время выполнения
-"""
+market = Market(beers=[beer1, beer2], wines=[wine1, wine2])
+
+print(market.has_drink_with_title('Bud'))
+print(*market.get_drinks_sorted_by_title(), sep='\n')
+print(*market.get_drinks_by_production_date(from_date=date(2023, 3, 1), to_date=date(2023, 5, 1)), sep='\n')
